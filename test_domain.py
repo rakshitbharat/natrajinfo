@@ -41,9 +41,13 @@ def check_github_deployment(domain):
         try:
             response = requests.get(url, timeout=10)
             print(f"\nTesting {url}:")
-            print(f"✅ Status Code: {response.status_code}")
+            print(f"Status Code: {response.status_code}")
+            print(f"Headers: {dict(response.headers)}")
             
-            # Check if served from GitHub Pages
+            if response.status_code == 404:
+                print("⚠️ Page not found - Check if files are in correct location")
+                return False
+                
             if "GitHub.com" in response.headers.get('server', ''):
                 print("✅ Served from GitHub Pages")
                 return True
