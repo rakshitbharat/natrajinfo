@@ -1,0 +1,10 @@
+# DNS Records needed for GitHub Pages with custom domain
+
+# A Records - Point to GitHub Pages IP addresses
+@ IN A 185.199.108.153
+@ IN A 185.199.109.153
+@ IN A 185.199.110.153
+@ IN A 185.199.111.153
+
+# CNAME Record (optional - for www subdomain)
+www IN CNAME rakshitbharat.github.io. 
